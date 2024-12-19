@@ -1,4 +1,4 @@
-.project-temp-container {
+.project-temp-container1 {
   width: 100%;
   height: 400px;
   display: flex;
@@ -7,6 +7,7 @@
   flex-direction: column;
   justify-content: center;
 }
+ 
 .project-temp-blog-post-card {
   width: 100%;
   display: flex;
@@ -14,11 +15,13 @@
   flex-direction: row;
   justify-content: center;
 }
+ 
 .project-temp-image {
   width: 500px;
   object-fit: cover;
 }
-.project-temp-container1 {
+ 
+.project-temp-container2 {
   flex: 1;
   display: flex;
   padding: var(--dl-space-space-twounits);
@@ -26,54 +29,71 @@
   flex-direction: column;
   justify-content: center;
 }
-.project-temp-text {
+ 
+.project-temp-text1 {
   margin-bottom: var(--dl-space-space-threeunits);
 }
-.project-temp-container2 {
+ 
+.project-temp-container3 {
   display: flex;
   align-items: flex-start;
   margin-bottom: var(--dl-space-space-threeunits);
   flex-direction: column;
   justify-content: flex-start;
 }
-.project-temp-text1 {
+ 
+.project-temp-text2 {
   color: var(--dl-color-gray-500);
   margin-bottom: var(--dl-space-space-halfunit);
 }
+ 
 .project-temp-link {
   color: var(--dl-color-gray-500);
   font-weight: 400;
   text-decoration: none;
 }
+ 
 
+ 
 
+ 
 
+ 
 
+ 
 
+ 
 
+ 
 
+ 
 
+ 
 
+ 
 
+ 
 
-
+ 
 @media(max-width: 1200px) {
   .project-temp-image {
     width: 578px;
     height: 374px;
   }
-  .project-temp-text1 {
+  .project-temp-text2 {
     color: var(--dl-color-gray-500);
   }
   .project-temp-link {
     color: var(--dl-color-gray-500);
   }
 }
+ 
 @media(max-width: 991px) {
   .project-temp-image {
     width: 50%;
   }
 }
+ 
 @media(max-width: 767px) {
   .project-temp-blog-post-card {
     flex-direction: column;
@@ -82,13 +102,13 @@
   .project-temp-image {
     width: 100%;
   }
-  .project-temp-container1 {
+  .project-temp-container2 {
     width: 100%;
   }
-  .project-temp-text {
+  .project-temp-text1 {
     margin-bottom: var(--dl-space-space-twounits);
   }
-  .project-temp-container2 {
+  .project-temp-container3 {
     margin-bottom: var(--dl-space-space-twounits);
   }
 }
