@@ -1,230 +1,400 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mohammad Bani Khaled Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <script src="https://unpkg.com/lucide@latest"></script>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background: linear-gradient(to bottom right, #1f2937, #000);
-      color: white;
-      padding: 2.5rem 1.5rem;
-    }
-    header, section {
-      margin-bottom: 4rem;
-      text-align: center;
-    }
-    h1 {
-      font-size: 3rem;
-      font-weight: bold;
-      margin-bottom: 0.5rem;
-    }
-    p, .description {
-      color: #d1d5db;
-      font-size: 1.125rem;
-      max-width: 768px;
-      margin: auto;
-    }
-    header p {
-      margin-bottom: 2rem;
-    }
-    .icons a {
-      margin: 0 0.5rem;
-      color: white;
-      transition: color 0.3s;
-    }
-    .icons a:hover {
-      color: #60a5fa;
-    }
-    .projects {
-      display: grid;
-      gap: 1.5rem;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    }
-    .card {
-      background: #1f2937;
-      padding: 1rem;
-      border-radius: 0.75rem;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-      transition: transform 0.3s;
-    }
-    .card:hover {
-      transform: scale(1.01);
-    }
-    .card img {
-      width: 100%;
-      height: 12rem;
-      object-fit: cover;
-      border-radius: 0.75rem;
-      margin-bottom: 1rem;
-    }
-    .card h3 {
-      font-size: 1.25rem;
-      font-weight: bold;
-    }
-    .btn {
-      display: inline-block;
-      padding: 1rem 2rem;
-      background-color: #2563eb;
-      color: white;
-      border: none;
-      border-radius: 0.5rem;
-      font-size: 1rem;
-      cursor: pointer;
-      text-decoration: none;
-      margin-top: 1rem;
-    }
-    .btn:hover {
-      background-color: #1d4ed8;
-    }
-    .section-title {
-      font-size: 2rem;
-      font-weight: 600;
-      border-bottom: 1px solid #374151;
-      display: inline-block;
-      padding-bottom: 0.5rem;
-      margin-bottom: 1.5rem;
-    }
-    .stats {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 2rem;
-      margin-top: 2rem;
-    }
-    .stat-block {
-      background-color: #111827;
-      padding: 1.5rem;
-      border-radius: 1rem;
-      text-align: center;
-      width: 180px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    }
-    .stat-number {
-      font-size: 2rem;
-      font-weight: 700;
-      color: #60a5fa;
-    }
-    .stat-label {
-      margin-top: 0.5rem;
-      font-size: 1rem;
-      color: #d1d5db;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mohammad Bani Khaled — Unity Developer</title>
+<meta name="description" content="Unity developer with 6+ years of experience and 2.1M game downloads. Founder of iBeyond, the largest game development YouTube channel in the MENA region.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0e0d0b;
+    --surface:#17150f;
+    --surface-2:#1e1b13;
+    --line:#2a261b;
+    --text:#eae4d8;
+    --muted:#9a917f;
+    --amber:#f2a33c;
+    --blood:#b3362b;
+    --radius:10px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'IBM Plex Sans',system-ui,sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--amber);color:var(--bg)}
+  a{color:var(--amber);text-decoration:none}
+  a:hover{text-decoration:underline}
+  a:focus-visible,button:focus-visible{outline:2px solid var(--amber);outline-offset:3px;border-radius:4px}
+  .wrap{max-width:1060px;margin:0 auto;padding:0 24px}
+  h1,h2,h3{font-family:'Chakra Petch',sans-serif;line-height:1.15}
+  .mono{font-family:'IBM Plex Mono',monospace}
+
+  /* ===== Nav ===== */
+  nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(14,13,11,.85);backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;max-width:1060px;margin:0 auto}
+  .logo{font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:18px;color:var(--text);letter-spacing:.04em}
+  .logo span{color:var(--amber)}
+  .nav-links{display:flex;gap:26px;font-size:14px}
+  .nav-links a{color:var(--muted)}
+  .nav-links a:hover{color:var(--text);text-decoration:none}
+  @media(max-width:640px){.nav-links{display:none}}
+
+  /* ===== Hero ===== */
+  header{
+    position:relative;
+    padding:96px 0 72px;
+    overflow:hidden;
+    border-bottom:1px solid var(--line);
+  }
+  /* flashlight glow — the one theatrical element */
+  #torch{
+    position:absolute;inset:0;pointer-events:none;
+    background:radial-gradient(420px circle at 70% 30%, rgba(242,163,60,.10), transparent 70%);
+    transition:background .15s linear;
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--amber);margin-bottom:18px;
+  }
+  header h1{font-size:clamp(38px,6.5vw,64px);font-weight:700;letter-spacing:.01em;margin-bottom:14px}
+  .tagline{font-size:clamp(17px,2.2vw,20px);color:var(--muted);max-width:640px;margin-bottom:36px}
+  .tagline strong{color:var(--text);font-weight:600}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:56px}
+  .btn{
+    display:inline-block;padding:12px 22px;border-radius:8px;
+    font-family:'Chakra Petch',sans-serif;font-weight:600;font-size:15px;letter-spacing:.03em;
+    border:1px solid var(--line);color:var(--text);background:var(--surface);
+    transition:transform .12s ease,border-color .12s ease;
+  }
+  .btn:hover{text-decoration:none;transform:translateY(-2px);border-color:var(--muted)}
+  .btn-primary{background:var(--amber);border-color:var(--amber);color:#161207}
+  .btn-primary:hover{border-color:var(--amber)}
+  .stats{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
+    background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;
+  }
+  .stat{background:var(--surface);padding:20px 18px}
+  .stat .num{font-family:'Chakra Petch',sans-serif;font-size:clamp(22px,3.4vw,32px);font-weight:700;color:var(--amber)}
+  .stat .lbl{font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:4px}
+  @media(max-width:640px){.stats{grid-template-columns:repeat(2,1fr)}}
+
+  /* ===== Sections ===== */
+  section{padding:72px 0;border-bottom:1px solid var(--line)}
+  .sec-head{display:flex;align-items:baseline;gap:16px;margin-bottom:12px}
+  .sec-head h2{font-size:clamp(24px,3.4vw,32px)}
+  .sec-tag{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+  .sec-sub{color:var(--muted);max-width:640px;margin-bottom:40px}
+
+  /* ===== Flagship ===== */
+  .flagship{
+    border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;
+    background:var(--surface);
+  }
+  .flagship-media{
+    position:relative;min-height:320px;
+    background:
+      radial-gradient(600px 260px at 50% 110%, rgba(179,54,43,.22), transparent 70%),
+      radial-gradient(500px 220px at 20% 0%, rgba(242,163,60,.07), transparent 70%),
+      linear-gradient(180deg,#141210,#0b0a08);
+    display:flex;align-items:center;justify-content:center;
+  }
+  /* NOTE: replace this placeholder block with real screenshots / a gameplay GIF */
+  .flagship-media .placeholder{
+    text-align:center;color:var(--muted);
+    font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.08em;
+  }
+  .flagship-media .crosshair{
+    font-family:'Chakra Petch',sans-serif;font-size:56px;color:rgba(234,228,216,.25);
+    display:block;margin-bottom:10px;
+  }
+  .flagship-body{padding:32px 34px 36px}
+  .badge{
+    display:inline-block;font-family:'IBM Plex Mono',monospace;
+    font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;
+    color:#ffd9a8;background:rgba(179,54,43,.25);border:1px solid rgba(179,54,43,.6);
+    padding:5px 12px;border-radius:999px;margin-bottom:16px;
+  }
+  .flagship-body h3{font-size:clamp(22px,3vw,28px);margin-bottom:12px}
+  .flagship-body p{color:var(--muted);max-width:680px;margin-bottom:10px}
+  .flagship-body p strong{color:var(--text);font-weight:600}
+  .meta{
+    display:flex;flex-wrap:wrap;gap:10px 26px;margin:22px 0 4px;
+    font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--muted);
+  }
+  .meta b{color:var(--text);font-weight:500}
+
+  /* ===== Project grid ===== */
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:22px}
+  .card{
+    background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+    overflow:hidden;display:flex;flex-direction:column;
+    transition:transform .15s ease,border-color .15s ease;
+  }
+  .card:hover{transform:translateY(-4px);border-color:#3a3424}
+  .card img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;background:#0b0a08}
+  .card-body{padding:20px 20px 22px;display:flex;flex-direction:column;flex:1}
+  .card-body h3{font-size:19px;margin-bottom:4px}
+  .card-meta{font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.06em;color:var(--muted);margin-bottom:12px}
+  .card-body p{font-size:14.5px;color:var(--muted);flex:1}
+  .card-links{margin-top:16px;display:flex;gap:16px;font-size:14px;font-weight:500}
+  .highlight{color:var(--amber);font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.05em;margin-bottom:10px}
+
+  /* ===== Teaching ===== */
+  .teach-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px}
+  .teach{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:26px}
+  .teach h3{font-size:18px;margin-bottom:8px}
+  .teach p{font-size:14.5px;color:var(--muted);margin-bottom:14px}
+  .teach .mono{font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);display:block;margin-bottom:10px}
+
+  /* ===== Skills ===== */
+  .skill-rows{display:grid;gap:14px;max-width:760px}
+  .skill-row{display:grid;grid-template-columns:150px 1fr;gap:18px;padding:16px 0;border-bottom:1px dashed var(--line)}
+  .skill-row .k{font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--amber);padding-top:2px}
+  .skill-row .v{color:var(--text);font-size:15px}
+  @media(max-width:560px){.skill-row{grid-template-columns:1fr;gap:4px}}
+
+  /* ===== Contact ===== */
+  .contact{padding:88px 0}
+  .contact h2{font-size:clamp(26px,4vw,36px);margin-bottom:12px}
+  .contact p{color:var(--muted);max-width:560px;margin-bottom:30px}
+  .contact-links{display:flex;gap:14px;flex-wrap:wrap}
+  footer{padding:26px 0 40px;color:var(--muted);font-size:13px}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto}
+    .btn,.card{transition:none}
+  }
+</style>
 </head>
 <body>
-  <header>
+
+<nav>
+  <div class="nav-inner">
+    <a class="logo" href="#top">iBeyond<span>.dev</span></a>
+    <div class="nav-links">
+      <a href="#work">My work</a>
+      <a href="#teaching">Teaching</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header id="top">
+  <div id="torch"></div>
+  <div class="wrap">
+    <div class="eyebrow">Unity Developer — Jordan · Open to studio &amp; remote roles</div>
     <h1>Mohammad Bani Khaled</h1>
-    <p>Game Developer • Unity & Unreal Engine • Content Creator</p>
-    <div class="icons">
-      <a href="https://www.linkedin.com/in/mohammad-bani-khaled-a63b14246/" target="_blank"><i data-lucide="linkedin"></i></a>
-      <a href="https://www.youtube.com/@iBeyond_dev/featured" target="_blank"><i data-lucide="youtube"></i></a>
-      <a href="mailto:contact@ibeyond.dev"><i data-lucide="mail"></i></a>
-      <a href="https://instagram.com/iBeyond_dev"  target="_blank"><i data-lucide="instagram"></i></a>
-    </div>
-  </header>
-
-  <section>
-    <h2 class="section-title">About Me</h2>
-    <p>
-      I'm a passionate game developer with a strong background in both Unity and Unreal Engine.
-      I run the biggest game development YouTube channel in the MENA region with over 486,000 subscribers,
-      sharing tutorials, tips, and devlogs. I also enjoy creating engaging, culturally inspired indie games.
+    <p class="tagline">
+      I've spent six years building games in Unity and teaching game development to the
+      largest gamedev audience in the MENA region. My released projects have passed
+      <strong>2.1 million downloads</strong>.
     </p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="#work">Play my games</a>
+      <a class="btn" href="downloads/Mohammad_BaniKhaled_CV.pdf" download>Download CV</a>
+    </div>
     <div class="stats">
-      <div class="stat-block">
-        <div class="stat-number">486K</div>
-        <div class="stat-label">Subscribers on YouTube</div>
+      <div class="stat"><div class="num">2.1M</div><div class="lbl">Game downloads</div></div>
+      <div class="stat"><div class="num">25+</div><div class="lbl">Games built</div></div>
+      <div class="stat"><div class="num">486K</div><div class="lbl">YouTube subscribers</div></div>
+      <div class="stat"><div class="num">6+</div><div class="lbl">Years in Unity</div></div>
+    </div>
+  </div>
+</header>
+
+<section id="work">
+  <div class="wrap">
+    <div class="sec-head"><h2>Released work</h2><span class="sec-tag">// selected projects</span></div>
+    <p class="sec-sub">A curated selection — every "Play" link opens a playable build, and every "Devlog" link shows the game in motion.</p>
+
+    <div class="grid">
+
+      <div class="card">
+        <img src="https://ibeyond.dev/images/ProjectChickenZ.jpg" alt="Project ChickenZ gameplay" loading="lazy">
+        <div class="card-body">
+          <div class="highlight">ORIGINAL IP · ON GOOGLE PLAY</div>
+          <h3>Project ChickenZ</h3>
+          <div class="card-meta">Unity · Android · Solo developer</div>
+          <p>A survival game where you play a chicken in a farm overrun by zombie chickens — fight varied enemy types, unlock doors, and collect power-ups. Designed, built, and published solo to Google Play.</p>
+          <div class="card-links">
+            <a href="https://play.google.com/store/apps/details?id=com.BeyondStudio.ChickenZ" target="_blank" rel="noopener">Get on Google Play →</a>
+          </div>
+        </div>
       </div>
-      <div class="stat-block">
-        <div class="stat-number">2.1M</div>
-        <div class="stat-label">Game Downloads Worldwide</div>
+
+      <div class="card">
+        <img src="https://ibeyond.dev/images/SuperWarm.gif" alt="SuperWarm gameplay" loading="lazy">
+        <div class="card-body">
+          <div class="highlight">TIME-SCALE MECHANICS ON MOBILE</div>
+          <h3>SuperWarm</h3>
+          <div class="card-meta">Unity · Mobile · Solo developer</div>
+          <p>A shooter where time only moves when you do — inspired by Superhot, rebuilt for touch. The core challenge: driving global time-scale from player input while keeping controls responsive on mobile hardware.</p>
+          <div class="card-links">
+            <a href="https://beyond-dev.itch.io/superwarm" target="_blank" rel="noopener">Play on itch.io →</a>
+          </div>
+        </div>
       </div>
-      <div class="stat-block">
-        <div class="stat-number">25+</div>
-        <div class="stat-label">Games Developed</div>
+
+      <div class="card">
+        <img src="https://ibeyond.dev/images/C0063_2_1-ezgif.com-optimize.gif" alt="Go Goal! gameplay" loading="lazy">
+        <div class="card-body">
+          <div class="highlight">PHYSICS &amp; AI MISDIRECTION</div>
+          <h3>Go Goal!</h3>
+          <div class="card-meta">Unity · PC · Solo developer</div>
+          <p>Outsmart AI players by guiding them into scoring on their own net before they reach yours, unlocking special abilities along the way. A game about steering opponents rather than the ball.</p>
+          <div class="card-links">
+            <a href="https://beyond-dev.itch.io/go-goal" target="_blank" rel="noopener">Play on itch.io →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://ibeyond.dev/images/AABUgames.jpg" alt="Al al-Bayt University recreated in 3D" loading="lazy">
+        <div class="card-body">
+          <div class="highlight">PHOTO-BASED 3D PIPELINE</div>
+          <h3>My University in 3D</h3>
+          <div class="card-meta">Unity · Blender · Graduation project</div>
+          <p>I recreated my entire university campus as an explorable 3D environment, using textures captured from real-life photography — an end-to-end pipeline from photos to modeling, texturing, and real-time rendering.</p>
+          <div class="card-links">
+            <a href="https://www.youtube.com/watch?v=V_KLAAMlWe0" target="_blank" rel="noopener">Watch devlog →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://ibeyond.dev/images/C0063_2_2-ezgif.com-optimize.gif" alt="Unreal Engine 5 horror game" loading="lazy">
+        <div class="card-body">
+          <div class="highlight">UNREAL ENGINE 5</div>
+          <h3>Horror Game (UE5)</h3>
+          <div class="card-meta">Unreal Engine 5 · PC · Solo developer</div>
+          <p>My first horror game in Unreal Engine 5 — a study in lighting, atmosphere, and Lumen-era visuals, and my deepest dive into horror game feel so far.</p>
+          <div class="card-links">
+            <a href="https://www.youtube.com/watch?v=94W4eVFSD6c" target="_blank" rel="noopener">Watch devlog →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://ibeyond.dev/images/HellMaze.gif" alt="HellMaze gameplay" loading="lazy">
+        <div class="card-body">
+          <div class="highlight">HORROR · CHASE AI</div>
+          <h3>HellMaze</h3>
+          <div class="card-meta">Unity · PC · Solo developer</div>
+          <p>Escape a maze while a monster hunts you and gems tempt you deeper. Built around pursuit AI and the tension between risk and reward.</p>
+          <div class="card-links">
+            <a href="https://beyond-dev.itch.io/hellmaze" target="_blank" rel="noopener">Play on itch.io →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://ibeyond.dev/images/2DPlatformer.gif" alt="2D platformer jam game" loading="lazy">
+        <div class="card-body">
+          <div class="highlight">GAME JAM ENTRY — BUILT IN UNDER A WEEK</div>
+          <h3>2D Platformer</h3>
+          <div class="card-meta">Unity · PC · Arab Dev Challenge jam</div>
+          <p>A complete 2D platformer designed, built, and submitted in under a week for a game jam — scope control and fast iteration under a hard deadline.</p>
+          <div class="card-links">
+            <a href="https://beyond-dev.itch.io/arabdevchallenge" target="_blank" rel="noopener">Play on itch.io →</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="teaching">
+  <div class="wrap">
+    <div class="sec-head"><h2>Teaching &amp; community</h2><span class="sec-tag">// proof I can explain what I build</span></div>
+    <p class="sec-sub">Building games is half the job — communicating clearly about them is the other half.</p>
+    <div class="teach-grid">
+      <div class="teach">
+        <span class="mono">YouTube · 486K subscribers</span>
+        <h3>iBeyond</h3>
+        <p>The largest game development channel in the MENA region — Unity and C# tutorials, devlogs, and full project breakdowns in Arabic.</p>
+        <a href="https://www.youtube.com/@iBeyond_dev" target="_blank" rel="noopener">Visit the channel →</a>
+      </div>
+      <div class="teach">
+        <span class="mono">Udemy · Instructor</span>
+        <h3>Unity Game Development Course</h3>
+        <p>A structured course taking students from Unity fundamentals through building and publishing complete games.</p>
+        <a href="https://www.udemy.com/course/ibeyond_unitycourse/" target="_blank" rel="noopener">View the course →</a>
+      </div>
+      <div class="teach">
+        <span class="mono">Sop Game Jam · 2025 &amp; 2026</span>
+        <h3>Game Jam Judge</h3>
+        <p>Selected as a judge for two consecutive editions, evaluating entries on gameplay, creativity, theme, graphics, and audio.</p>
+        <a href="https://jam.qwacks.com/sop-game-jam-2026" target="_blank" rel="noopener">About the jam →</a>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section>
-    <h2 class="section-title">Projects</h2>
-    <div class="projects">
-      <div class="card">
-        <img src="images/AABUgames.jpg" alt="My Graduation Project">
-        <h3>My Graduation Project</h3>
-        <p class="description">I Turned My Whole University Into a 3d Model Using Textuers i Took From Real Life</p>
-        <a href="https://www.youtube.com/watch?v=V_KLAAMlWe0&t=119s" target="_blank" class="btn">View Game</a>
-      </div><div class="card">
-        <img src="images/C0063_2_2-ezgif.com-optimize.gif" alt="Horror Game">
-        <h3>Horror Game</h3>
-        <p class="description">My First Horror Game In Unreal Engine 5</p>
-        <a href="https://www.youtube.com/watch?v=94W4eVFSD6c&t=5s" target="_blank" class="btn">View Game</a>
-      </div>
-      <div class="card">
-        <img src="images/SuperWarm.gif" alt="SuperWarm">
-        <h3>SuperWarm</h3>
-        <p class="description">This Time i tried to make a clone of the game superhot where time only moves when you do but for mobile.</p>
-        <a href="https://beyond-dev.itch.io/superwarm" target="_blank" class="btn">View Game</a>
-      </div>  <div class="card">
-        <img src="images/2DPlatformer.gif" alt="2D Platformer">
-        <h3>2D Platformer</h3>
-        <p class="description">This was a 2d game that i made in less then a week for a game jam i participated in.</p>
-        <a href="https://beyond-dev.itch.io/arabdevchallenge" target="_blank" class="btn">View Game</a>
-      </div>
-      <div class="card">
-        <img src="images/AOT.gif" alt="Attack On Titan">
-        <h3>Attack On Titan</h3>
-        <p class="description">A game where you use some kind of a grappling hook to fly and kill as many titan as you can while managing your gas usage. This game has more than 355K downloads.</p>
-        <a href="https://beyond-dev.itch.io/aotv20" target="_blank" class="btn">View Game</a>
-      </div>
-      <div class="card">
-        <img src="images/C0063_2_1-ezgif.com-optimize.gif" alt="Go Goal!">
-        <h3>Go Goal!</h3>
-        <p class="description">Your goal is to outsmart the players by guiding them into their own net before they reach yours. Along the way, you can unlock and use special abilities to gain an edge.</p>
-        <a href="https://www.youtube.com/watch?v=g78gev-6SXw" target="_blank" class="btn">View Game</a>
-      </div><div class="card">
-        <img src="images/Naruto.gif" alt="Naruto Game">
-        <h3>Naruto Game</h3>
-        <p class="description">A fighting game about the Anime Naruto where you fight endless amount of enemies and gain some abilities that can help you in your fight.</p>
-        <a href="https://beyond-dev.itch.io/narutogame" target="_blank" class="btn">View Game</a>
-      </div><div class="card">
-        <img src="images/HellMaze.gif" alt="HellMaze">
-        <h3>HellMaze</h3>
-        <p class="description">HellMaze is a Horror Game Where You are try to run away from a monster and collect some gems</p>
-        <a href="https://beyond-dev.itch.io/hellmaze" target="_blank" class="btn">View Game</a>
-      </div><div class="card">
-        <img src="images/PacMan3D.gif" alt="PacMan3D">
-        <h3>PacMan3D</h3>
-        <p class="description">I turned the old pacman game into a 3D game using Unity engine ,</p>
-        <a href="https://beyond-dev.itch.io/pacman3d" target="_blank" class="btn">View Game</a>
-      </div><div class="card">
-        <img src="images/ProjectChickenZ.jpg" alt="Project ChickenZ">
-        <h3>Project ChickenZ</h3>
-        <p class="description">a game where you are a chicken trying to survive in a farm full of zombie chickens,fight different kind of chickensunlock doors and different power ups to help you with that missions.</p>
-        <a href="https://play.google.com/store/apps/details?id=com.BeyondStudio.ChickenZ" target="_blank" class="btn">View Game</a>
-      </div>
+<section id="skills">
+  <div class="wrap">
+    <div class="sec-head"><h2>Skills</h2><span class="sec-tag">// tools I ship with</span></div>
+    <div class="skill-rows">
+      <div class="skill-row"><div class="k">Engines</div><div class="v">Unity (primary, 6+ years) · Unreal Engine 5</div></div>
+      <div class="skill-row"><div class="k">Programming</div><div class="v">C# · Blueprint visual scripting</div></div>
+      <div class="skill-row"><div class="k">Mobile</div><div class="v">Android development, optimization &amp; Google Play publishing</div></div>
+      <div class="skill-row"><div class="k">Art &amp; VFX</div><div class="v">Blender (modeling, animation, texture painting) · VFX design</div></div>
+      <div class="skill-row"><div class="k">Languages</div><div class="v">Arabic (native) · English (professional)</div></div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section>
-    <h2 class="section-title">Download My Resume</h2>
-    <p class="description">You can download my resume in PDF format below.</p>
-    <a href="downloads/Updatet_CV.pdf" target="_blank" class="btn">Download Resume</a>
-  </section>
+<section class="contact" id="contact" style="border-bottom:none">
+  <div class="wrap">
+    <h2>Let's build something.</h2>
+    <p>Open to full-time studio roles, remote positions, freelance projects, and collaborations.</p>
+    <div class="contact-links">
+      <a class="btn btn-primary" href="mailto:contact@ibeyond.dev">contact@ibeyond.dev</a>
+      <a class="btn" href="https://www.linkedin.com/in/mohammad-bani-khaled-a63b14246/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn" href="https://beyond-dev.itch.io" target="_blank" rel="noopener">itch.io</a>
+      <a class="btn" href="https://www.youtube.com/@iBeyond_dev" target="_blank" rel="noopener">YouTube</a>
+    </div>
+  </div>
+</section>
 
-  <section>
-    <h2 class="section-title">Contact Me</h2>
-    <p class="description">Open to freelance projects, collaborations, and full-time opportunities.</p>
-    <a href="mailto:contact@ibeyond.dev" class="btn">Send Email</a>
-  </section>
+<footer>
+  <div class="wrap">
+    <span>© 2026 Mohammad Bani Khaled</span>
+    <span class="mono">ibeyond.dev</span>
+  </div>
+</footer>
 
-  <script>
-    lucide.createIcons();
-  </script>
+<script>
+  // Flashlight hover effect on the hero — disabled for reduced motion
+  const torch = document.getElementById('torch');
+  const hero = document.querySelector('header');
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (torch && hero && !reduced && matchMedia('(pointer:fine)').matches) {
+    hero.addEventListener('mousemove', (e) => {
+      const r = hero.getBoundingClientRect();
+      const x = ((e.clientX - r.left) / r.width) * 100;
+      const y = ((e.clientY - r.top) / r.height) * 100;
+      torch.style.background =
+        `radial-gradient(420px circle at ${x}% ${y}%, rgba(242,163,60,.12), transparent 70%)`;
+    });
+  }
+</script>
+
 </body>
 </html>
